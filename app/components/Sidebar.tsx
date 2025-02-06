@@ -13,7 +13,7 @@ export function Sidebar (){
                 <ImagemPerfil linkUrl="https://avatars.githubusercontent.com/u/101829531?v=4" />
             </div>
             <div className="flex flex-col items-center pt-4 pb-6">
-                <strong className="text-zinc-100 leading-6">Nome do Usuario</strong>
+                <strong className="text-zinc-100 leading-6">Renê Gomes</strong>
                 <span className="text-sm text-zinc-400 leading-6">Desenvolvedor Front-end</span>
             </div>
             <footer className="border-t border-zinc-600 pt-6 pb-8 px-6">

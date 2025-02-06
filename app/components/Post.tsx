@@ -1,3 +1,4 @@
+import { Comment } from "./Comment"
 import { ImagemPerfil } from "./ImagemPerfil"
 
 export function Post(){
@@ -7,7 +8,7 @@ export function Post(){
                 <div className="flex items-center gap-4">
                     <ImagemPerfil linkUrl="https://avatars.githubusercontent.com/u/101829531?v=4"/>
                     <div className="flex flex-col">
-                        <strong className="text-zinc-100 leading-6">Nome do Usuario</strong>
+                        <strong className="text-zinc-100 leading-6">Renê Gomes</strong>
                         <span className="text-sm text-zinc-400 leading-6">Desenvolvedor Front-end</span>
                     </div>
                 </div>
@@ -27,7 +28,7 @@ export function Post(){
                 </p>
             </main>
             <section className="mt-6">
-                <form id="formulario" className="flex flex-col gap-4 px-6 pt-6 border-t border-zinc-500 group">
+                <form id="formulario" className="flex flex-col gap-4 pt-6 pb-5 border-t border-zinc-500 group">
                     <strong className="text-zinc-100">Deixe seu feedback</strong>
                     <textarea
                         placeholder="Escreva um comentário..."
@@ -42,6 +43,12 @@ export function Post(){
                     </footer>
                 </form>
             </section>
+            <div>
+                <Comment />
+                <Comment />
+                <Comment />
+                <Comment />
+            </div>
         </article>
     )
 }
