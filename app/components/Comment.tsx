@@ -12,14 +12,14 @@ export function Comment() {
                             <strong className='text-sm'>Renê Gomes</strong>
                             <p className="text-xs text-zinc-400">Cerca de 1h atrás</p>
                         </div>
-                        <button className='invisible group-hover:visible' title="Excluir"><Trash size={24} color='#a1a1aa'/></button>
+                        <button className='invisible group-hover:visible text-zinc-400 hover:text-red-500' title="Excluir"><Trash size={24}/></button>
                     </header>
                     <p className="pb-2 text-sm text-zinc-200">Muito bom Renê, parabéns!!</p>
                 </div>
                 <footer>
-                    <button className='flex gap-3 mt-4 items-center text-sm text-zinc-400'>
-                        <ThumbsUp size={16} color='#a1a1aa' />
-                        Aplaudir <samp>30</samp>
+                    <button className='flex gap-2 mt-4 items-center text-sm text-zinc-400 hover:text-green-400'>
+                        <ThumbsUp size={16} />
+                        Aplaudir <samp className='before:content-["\2022"] before:mr-1 before:ml-[-0.25rem]'>30</samp>
                     </button>
                 </footer>
             </div>
