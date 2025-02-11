@@ -3,7 +3,7 @@ import { ImagemPerfil } from "./ImagemPerfil"
 
 export function Post(){
     return(
-        <article className="bg-zinc-800 p-10 rounded-lg mt-8 first:mt-0">
+        <article className="bg-zinc-800 p-10 rounded-lg mt-8 max-md:p-5 max-md:text-[14px] first:mt-0">
             <header className="flex items-center justify-between pb-6">
                 <div className="flex items-center gap-4">
                     <ImagemPerfil linkUrl="https://avatars.githubusercontent.com/u/101829531?v=4"/>
