@@ -1,10 +1,11 @@
 "use client";
 import { ThumbsUp, Trash } from '@phosphor-icons/react';
+import { ImagemPerfil } from './ImagemPerfil';
 
 export function Comment() {
     return(
-        <div className="grid grid-cols-[50px_1fr] gap-4 mb-6 last:mb-0">
-            <img className="rounded-lg" src="https://avatars.githubusercontent.com/u/101829531?v=4" alt="Foto de perfil" />
+        <div className="grid grid-cols-[50px_1fr] items-start gap-4 mb-6 last:mb-0">
+            <ImagemPerfil borda={false} linkUrl="https://avatars.githubusercontent.com/u/101829531?v=4" />
             <div>
                 <div className="flex flex-col gap-4 bg-zinc-700 p-4 rounded-lg group">
                     <header className="flex justify-between items-center ">
