@@ -11,21 +11,22 @@ export const mostraComentarios = async () => {
     }
 };
 
+
 export const adcionaComentario = async (novoComentario) => {
-    try {
-      const resposta = await fetch(URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(novoComentario),
-      });
-      const dados = await resposta.json();
-      return dados;
-    } catch (error) {
-      console.error('Erro ao adicionar dados:', error);
-      throw error;
-    }
+  try {
+    const resposta = await fetch(URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(novoComentario),
+    });
+    const dados = await resposta.json();
+    return dados;
+  } catch (error) {
+    console.error('Erro ao adicionar dados:', error);
+    throw error;
+  }
 };
 
 export const deleteComentario = async (id) => {

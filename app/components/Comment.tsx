@@ -4,7 +4,7 @@ import { ImagemPerfil } from './ImagemPerfil';
 
 
 interface CommentProps {
-    id: string,
+    id?: string,
     idPublicacao: string,
     idPostagem: string,
     nome: string,

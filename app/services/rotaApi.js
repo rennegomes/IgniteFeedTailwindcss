@@ -19,7 +19,7 @@ export const rotaApi = () => {
   const apiAddData = async (newData) => {
     try {
       const added = await addData(newData);
-      setDados(prevData => [...prevData, added]);  // Atualiza a lista com o novo item
+      setDados(prevData => [...prevData, added]);
     } catch (err) {
       setError('Erro ao adicionar dados');
     }
@@ -29,7 +29,7 @@ export const rotaApi = () => {
   const apiDeleteData = async (id) => {
     try {
       await deleteData(id);
-      setDados(prevData => prevData.filter(item => item.id !== id));  // Remove o item deletado
+      setDados(prevData => prevData.filter(item => item.id !== id));
     } catch (err) {
       setError('Erro ao deletar dados');
     }

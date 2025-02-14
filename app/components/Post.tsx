@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Comment } from "./Comment"
 import { ImagemPerfil } from "./ImagemPerfil"
 
@@ -15,7 +16,23 @@ interface PostProps{
 
 export function Post(props: PostProps){
 
-    const { dados } = rotaComment();
+    const { dados, criaComentarios, carregaComentarios } = rotaComment();
+
+    const [comentario, setComentario] = useState('');
+
+  const comentarioEscrevendo = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setComentario(event.target.value);
+  };
+
+  const enviaComentario = async (event: React.FormEvent) => {
+    event.preventDefault();
+    if (comentario.trim() !== '') {
+      await criaComentarios({ id: dados.length + 1, idPublicacao: props.id, nome: props.nome, fotoUrl: props.fotoUrl, conteudo: comentario, dataPublicada: props.dataPublicada });
+
+      setComentario('');
+      carregaComentarios();
+    }   
+  };
 
     return(
         <article className="bg-zinc-800 p-10 rounded-lg mt-8 max-md:p-5 max-md:text-[14px] first:mt-0">
@@ -33,9 +50,11 @@ export function Post(props: PostProps){
                 <p className="mt-4">{props.assunto}</p>
             </main>
             <section className="mt-6">
-                <form id="formulario" className="flex flex-col gap-4 pt-6 pb-5 border-t border-zinc-500 group">
+                <form onSubmit={enviaComentario} id="formulario" className="flex flex-col gap-4 pt-6 pb-5 border-t border-zinc-500 group">
                     <strong className="text-zinc-100">Deixe seu feedback</strong>
                     <textarea
+                        value={comentario}
+                        onChange={comentarioEscrevendo}
                         placeholder="Escreva um comentário..."
                         className="bg-zinc-900 text-zinc-100 leading-6 h-24 p-3 rounded-lg resize-none border border-zinc-900 focus:border-green-500 outline-none"
                     />
@@ -50,7 +69,7 @@ export function Post(props: PostProps){
             </section>
             <div>
                 {dados.map((item) => (
-                    <Comment key={item.id} id={item.id} idPublicacao={item.idPublicacao} idPostagem={props.id} nome={item.nome} assunto={item.conteudo} fotoUrl={item.fotoUrl} dataPublicada={item.dataPublicada} />
+                    <Comment key={item.id + 1} idPublicacao={item.idPublicacao} idPostagem={props.id} nome={item.nome} assunto={item.conteudo} fotoUrl={item.fotoUrl} dataPublicada={item.dataPublicada} />
                 ))
                 }
             </div>

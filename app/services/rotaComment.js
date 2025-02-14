@@ -12,6 +12,15 @@ export const rotaComment = () => {
         } catch (error) {
             setError('Erro ao carregar dados');
         }
+    };
+
+    const criaComentarios = async (novoComentario) => {
+        try {
+            const data = await adcionaComentario(novoComentario);
+            setDados(prevData => [...prevData, data]);
+        } catch (error) {
+            setError('Erro ao adicionar dados');
+        }
     }
 
     useEffect(() => {
@@ -21,6 +30,8 @@ export const rotaComment = () => {
     return {
         dados,
         error,
-        rotaComment
+        carregaComentarios,
+        rotaComment,
+        criaComentarios
     };
 };
