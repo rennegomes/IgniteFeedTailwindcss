@@ -1,8 +1,26 @@
+"use client";
 import { Header } from "./components/Header";
 import { Post } from "./components/Post";
 import { Sidebar } from "./components/Sidebar";
 
+import { useState, useEffect } from "react";
+import { rotaApi } from "@/app/services/rotaApi";
+
 export default function Home() {
+  const { dados, error, loadData, apiAddData, apiDeleteData } = rotaApi();
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const apiAddClick = () => {
+    const newData = {
+      nome: "Novo Nome",
+      idade: 25,
+    };
+    apiAddData(newData);
+  };
+
   return (
     <div className="focus:outline-none focus:ring-2 focus:ring-green-500">
       <Header />
@@ -11,8 +29,9 @@ export default function Home() {
           <Sidebar />
         </div>
         <main>
-          <Post />
-          <Post />
+          {dados.map((item) =>(
+            <Post key={item.id} fotoUrl={item.fotoUrl} nome={item.nome} cargo={item.cargo} assunto={item.conteudo} />
+          ))}
         </main>
       </div>
     </div>

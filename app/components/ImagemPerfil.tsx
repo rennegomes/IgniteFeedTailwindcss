@@ -9,7 +9,7 @@ export function ImagemPerfil(props: ImagemPerfilProps) {
 
     return(
         <div className={ borda ? "w-16 bg-zinc-800 border rounded-md border-green-500" : "w-14 " }>
-            <img className={ borda ? "p-1 rounded-md" : " p-1 rounded-lg" } src={props.linkUrl} alt="Foto de Perfil" />
+            <img className={ borda ? "p-1 rounded-md" : " p-1 rounded-lg" } src={props.linkUrl || "null"} alt="Foto de Perfil" />
         </div>
     )
 }
