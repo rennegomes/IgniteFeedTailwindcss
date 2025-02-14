@@ -3,23 +3,10 @@ import { Header } from "./components/Header";
 import { Post } from "./components/Post";
 import { Sidebar } from "./components/Sidebar";
 
-import { useState, useEffect } from "react";
 import { rotaApi } from "@/app/services/rotaApi";
 
 export default function Home() {
-  const { dados, error, loadData, apiAddData, apiDeleteData } = rotaApi();
-
-  useEffect(() => {
-    loadData();
-  }, []);
-
-  const apiAddClick = () => {
-    const newData = {
-      nome: "Novo Nome",
-      idade: 25,
-    };
-    apiAddData(newData);
-  };
+  const { dados } = rotaApi();
 
   return (
     <div className="focus:outline-none focus:ring-2 focus:ring-green-500">
@@ -30,7 +17,7 @@ export default function Home() {
         </div>
         <main>
           {dados.map((item) =>(
-            <Post key={item.id} fotoUrl={item.fotoUrl} nome={item.nome} cargo={item.cargo} assunto={item.conteudo} />
+            <Post key={item.id} id={item.id} fotoUrl={item.fotoUrl} nome={item.nome} cargo={item.cargo} assunto={item.conteudo} dataPublicada={item.dataPublicada} />
           ))}
         </main>
       </div>
