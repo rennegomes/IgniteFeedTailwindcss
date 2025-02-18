@@ -21,6 +21,15 @@ export const rotaComment = () => {
         } catch (error) {
             setError('Erro ao adicionar dados');
         }
+    };
+
+    const deletaComentario = async (id) => {
+        try {
+            const data = await deleteComentario();
+            setDados(prevData => prevData.filter(item => item !== id))
+        } catch (error) {
+            setError('Erro ao daletar dados');
+        }
     }
 
     useEffect(() => {
@@ -32,6 +41,7 @@ export const rotaComment = () => {
         error,
         carregaComentarios,
         rotaComment,
-        criaComentarios
+        criaComentarios,
+        deletaComentario
     };
 };
