@@ -23,7 +23,7 @@ export const rotaComment = () => {
         }
     };
 
-    const deletaComentario = async (id) => {
+    const rotaDeletaComentario = async (id) => {
         try {
             await deleteComentario(id);
             setDados(prevData => prevData.filter(item => item !== id))
@@ -42,6 +42,6 @@ export const rotaComment = () => {
         carregaComentarios,
         rotaComment,
         criaComentarios,
-        deletaComentario
+        rotaDeletaComentario
     };
 };
