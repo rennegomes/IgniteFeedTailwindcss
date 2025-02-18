@@ -25,7 +25,7 @@ export const rotaComment = () => {
 
     const deletaComentario = async (id) => {
         try {
-            const data = await deleteComentario();
+            await deleteComentario(id);
             setDados(prevData => prevData.filter(item => item !== id))
         } catch (error) {
             setError('Erro ao daletar dados');
