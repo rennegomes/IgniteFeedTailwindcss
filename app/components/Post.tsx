@@ -6,7 +6,7 @@ import { ImagemPerfil } from "./ImagemPerfil"
 import { rotaComment } from '@/app/services/rotaComment'
 
 interface PostProps{
-    id: string,
+    id: number,
     nome: string,
     cargo: string,
     assunto: string
@@ -24,10 +24,16 @@ export function Post(props: PostProps){
     setComentario(event.target.value);
   };
 
+  function gerarIdUnico() {
+        return Date.now() + Math.floor(Math.random() * 1000);
+    }
+
+    const idUnico = gerarIdUnico();
+
   const enviaComentario = async (event: React.FormEvent) => {
     event.preventDefault();
     if (comentario.trim() !== '') {
-      await criaComentarios({ id: dados.length + 1, idPublicacao: props.id, nome: props.nome, fotoUrl: props.fotoUrl, conteudo: comentario, dataPublicada: props.dataPublicada });
+      await criaComentarios({ id: idUnico, idPublicacao: props.id, nome: props.nome, fotoUrl: props.fotoUrl, conteudo: comentario, dataPublicada: props.dataPublicada });
 
       setComentario('');
       carregaComentarios();
@@ -69,7 +75,7 @@ export function Post(props: PostProps){
             </section>
             <div>
                 {dados.map((item) => (
-                    <Comment key={item.id + 1} idPublicacao={item.idPublicacao} idPostagem={props.id} nome={item.nome} assunto={item.conteudo} fotoUrl={item.fotoUrl} dataPublicada={item.dataPublicada} />
+                    <Comment key={item.id + 1} id={item.id} idPublicacao={item.idPublicacao} idPostagem={props.id} nome={item.nome} assunto={item.conteudo} fotoUrl={item.fotoUrl} dataPublicada={item.dataPublicada} />
                 ))
                 }
             </div>

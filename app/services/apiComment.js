@@ -11,7 +11,6 @@ export const mostraComentarios = async () => {
     }
 };
 
-
 export const adcionaComentario = async (novoComentario) => {
   try {
     const resposta = await fetch(URL, {
@@ -31,7 +30,7 @@ export const adcionaComentario = async (novoComentario) => {
 
 export const deleteComentario = async (id) => {
     try {
-      const resposta = await fetch(`${URL}/${id}`, {
+      const resposta = await fetch(`${URL}/id/${id}`, {
         method: 'DELETE',
       });
       const dados = await resposta.json();

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { mostraComentarios, adcionaComentario, deleteComentario } from './apiComment';
 
 export const rotaComment = () => {
-  const [dados, setDados] = useState([{ id: "", idPublicacao:"", nome: "", fotoUrl: "", conteudo: "", dataPublicada: "" }]);
+  const [dados, setDados] = useState([{ id: 1, idPublicacao:1, nome: "", fotoUrl: "", conteudo: "", dataPublicada: "" }]);
   const [error, setError] = useState(null);
 
     const carregaComentarios = async () => {

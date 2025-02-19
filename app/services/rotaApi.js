@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { fetchData, addData, deleteData } from './api';
 
 export const rotaApi = () => {
-  const [dados, setDados] = useState([{ id: "", nome: "", fotoUrl: "", cargo: "", conteudo: "", dataPublicada: "" }]);
+  const [dados, setDados] = useState([{ id: 1, nome: "", fotoUrl: "", cargo: "", conteudo: "", dataPublicada: "" }]);
   const [error, setError] = useState(null);
 
   
