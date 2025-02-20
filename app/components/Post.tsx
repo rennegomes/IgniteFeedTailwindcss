@@ -24,6 +24,8 @@ export function Post(props: PostProps){
     setComentario(event.target.value);
   };
 
+  const verificaComentarioVazio = comentario.trim() === '';
+
   function gerarIdUnico() {
         return Date.now() + Math.floor(Math.random() * 1000);
     }
@@ -32,7 +34,7 @@ export function Post(props: PostProps){
 
   const enviaComentario = async (event: React.FormEvent) => {
     event.preventDefault();
-    if (comentario.trim() !== '') {
+    if (!verificaComentarioVazio) {
       await criaComentarios({ id: idUnico, idPublicacao: props.id, nome: props.nome, fotoUrl: props.fotoUrl, conteudo: comentario, dataPublicada: props.dataPublicada });
 
       setComentario('');
@@ -65,14 +67,17 @@ export function Post(props: PostProps){
                     <textarea
                         value={comentario}
                         onChange={comentarioEscrevendo}
+                        required
                         placeholder="Escreva um comentário..."
                         className="bg-zinc-900 text-zinc-100 leading-6 h-24 p-3 rounded-lg resize-none border border-zinc-900 focus:border-green-500 outline-none"
                     />
                     <footer className="self-end invisible max-h-0 group-focus-within:visible group-focus-within:max-h-none">
                         <button 
-                            className="font-bold bg-green-600 px-6 pt-4 pb-3 rounded-lg transition-colors duration-100 hover:bg-green-500" 
-                            type="submit">
-                                Publicar
+                            className="font-bold bg-green-600 px-6 pt-4 pb-3 rounded-lg transition-colors duration-100 enabled:hover:bg-green-500 disabled:opacity-15 disabled:cursor-not-allowed"
+                            type="submit"
+                            disabled={verificaComentarioVazio}
+                        >
+                            Publicar
                         </button>
                     </footer>
                 </form>
