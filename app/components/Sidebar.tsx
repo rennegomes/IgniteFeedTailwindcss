@@ -4,7 +4,7 @@ import { ImagemPerfil } from "./ImagemPerfil";
 
 export function Sidebar (){
     return(
-        <aside className="bg-zinc-800 rounded-lg overflow-hidden">
+        <aside className="bg-zinc-800 rounded-lg overflow-hidden lg:fixed">
             <img
                 className="w-full h-[72px] object-cover"
                 src="https://images.unsplash.com/photo-1502951682449-e5b93545d46e?q=50&w=500&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
