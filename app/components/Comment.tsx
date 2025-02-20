@@ -69,7 +69,7 @@ export function Comment(props: CommentProps) {
                     </div>
                 </div>
                 {abrirAlertaDeletarComentario && (
-                    <div  className='fixed flex items-center  bg-zinc-900 inset-0 bg-opacity-35'>
+                    <div  className='fixed flex items-center bg-black/80 inset-0'>
                         <div className='flex flex-col items-center max-w-96 mx-auto bg-zinc-800 rounded-lg z-[9999]'>
                             <div className='flex flex-col text-center items-center gap-6 mx-16 my-8'>
                                 <h1 className='font-bold text-lg'>Excluir comentário</h1>
