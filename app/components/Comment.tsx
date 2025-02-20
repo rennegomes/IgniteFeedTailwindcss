@@ -11,7 +11,8 @@ interface CommentProps {
     nome: string,
     assunto: string
     fotoUrl: string
-    dataPublicada: string
+    dataPublicada: string,
+    funcaoAtualiza?: any,
 }
 
 export function Comment(props: CommentProps) {
@@ -28,7 +29,7 @@ export function Comment(props: CommentProps) {
         try {
             await rotaDeletaComentario(props.id);
             console.log("Comentário deletado com sucesso");
-            carregaComentarios();
+            props.funcaoAtualiza();
         } catch (error) {
             console.error("Erro ao deletar o comentário:", error);
         }

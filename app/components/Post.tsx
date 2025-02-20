@@ -40,6 +40,10 @@ export function Post(props: PostProps){
     }   
   };
 
+    const atualizaComentarios = () => {
+        carregaComentarios();
+    }
+
     return(
         <article className="bg-zinc-800 p-10 rounded-lg mt-8 max-md:p-5 max-md:text-[14px] first:mt-0">
             <header className="flex items-center justify-between pb-6">
@@ -75,7 +79,7 @@ export function Post(props: PostProps){
             </section>
             <div>
                 {dados.map((item) => (
-                    <Comment key={item.id + 1} id={item.id} idPublicacao={item.idPublicacao} idPostagem={props.id} nome={item.nome} assunto={item.conteudo} fotoUrl={item.fotoUrl} dataPublicada={item.dataPublicada} />
+                    <Comment key={item.id + 1} id={item.id} idPublicacao={item.idPublicacao} idPostagem={props.id} nome={item.nome} assunto={item.conteudo} fotoUrl={item.fotoUrl} dataPublicada={item.dataPublicada} funcaoAtualiza={atualizaComentarios} />
                 ))
                 }
             </div>
