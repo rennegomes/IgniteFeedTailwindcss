@@ -21,6 +21,8 @@ export function Comment(props: CommentProps) {
 
     const [abrirAlertaDeletarComentario, setAbrirAlertaDeletarComentario] = useState(false)
 
+    const [likeComentario, setLikeComentario] = useState(0);
+
     const deletaComentario = async() =>{
         if (!props.id) {
             console.error("ID do comentário não está definido.");
@@ -43,11 +45,17 @@ export function Comment(props: CommentProps) {
         console.log("Mostra", abrirAlertaDeletarComentario)
     }
 
+    function darLikeComentario (){
+        setLikeComentario((like) => {
+            return like + 1
+        });
+    }
+
     if (props.idPublicacao === props.idPostagem ){
 
         return(
             <div>
-                <div className="grid grid-cols-[50px_1fr] items-start gap-4 mb-6 last:mb-0">
+                <div className="grid grid-cols-[50px_1fr] items-start gap-4 mb-6">
                     <ImagemPerfil borda={false} linkUrl={props.fotoUrl} />
                     <div>
                         <div className="flex flex-col gap-4 bg-zinc-700 p-4 rounded-lg group">
@@ -61,9 +69,9 @@ export function Comment(props: CommentProps) {
                             <p className="pb-2 text-sm text-zinc-200">{props.assunto}</p>
                         </div>
                         <footer>
-                            <button className='flex gap-2 mt-4 items-center text-sm text-zinc-400 hover:text-green-400'>
+                            <button onClick={darLikeComentario} className={ likeComentario > 0 ? 'flex gap-2 mt-4 items-center text-sm text-green-400' : 'flex gap-2 mt-4 items-center text-sm text-zinc-400 hover:text-green-400'}>
                                 <ThumbsUp size={16} />
-                                Aplaudir <samp className='before:content-["\2022"] before:mr-1 before:ml-[-0.25rem]'>30</samp>
+                                Aplaudir <samp className='before:content-["\2022"] before:mr-1 before:ml-[-0.25rem]'>{likeComentario}</samp>
                             </button>
                         </footer>
                     </div>
